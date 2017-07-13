@@ -34,3 +34,7 @@
     "word_wrap": true
 }
 ```
+
+## zsh
+
+* https://github.com/zsh-users/zsh-autosuggestions
