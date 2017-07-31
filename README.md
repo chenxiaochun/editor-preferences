@@ -15,7 +15,8 @@
     },
     "explorer.autoReveal": false,
     "workbench.editor.enablePreview": false,
-    "material-icon-theme.showUpdateMessage": false
+    "material-icon-theme.showUpdateMessage": false,
+    "extensions.ignoreRecommendations": true
 }
 ```
 
