@@ -1,5 +1,7 @@
 ## vscode
 
+### 配置参数：
+
 ```json
 {
     "window.zoomLevel": 1,
@@ -16,6 +18,10 @@
     "material-icon-theme.showUpdateMessage": false
 }
 ```
+
+### 开发插件：
+
+* 路径自动补全：https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense#review-details
 
 ## sublime
 
