@@ -44,4 +44,5 @@
 
 ## zsh
 
+* https://github.com/robbyrussell/oh-my-zsh
 * 自动提示补全：https://github.com/zsh-users/zsh-autosuggestions
