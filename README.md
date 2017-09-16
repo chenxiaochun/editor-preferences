@@ -29,8 +29,7 @@
 ```json
 {
     "color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
-    "font_face": "Courier",
-    "font_size": 16,
+    "font_size": 14,
     "highlight_line": true,
     "ignored_packages":
     [
@@ -38,7 +37,8 @@
     ],
     "save_on_focus_lost": true,
     "word_separators": "./\\()\"':,.;<>~!@#$%^&*|+=[]{}`~?",
-    "word_wrap": true
+    "word_wrap": true,
+    "translate_tabs_to_spaces": true,
 }
 ```
 
