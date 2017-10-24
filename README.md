@@ -24,7 +24,7 @@
 
 * 路径自动补全：https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense#review-details
 
-## sublime
+## sublime3
 
 ```json
 {
@@ -38,7 +38,7 @@
     "save_on_focus_lost": true,
     "word_separators": "./\\()\"':,.;<>~!@#$%^&*|+=[]{}`~?",
     "word_wrap": true,
-    "translate_tabs_to_spaces": true,
+    "translate_tabs_to_spaces": true
 }
 ```
 
