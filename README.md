@@ -23,6 +23,7 @@
 ### 开发插件：
 
 * 路径自动补全：https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense#review-details
+* Auto Close Tag：https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag
 
 ## sublime3
 
