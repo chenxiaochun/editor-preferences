@@ -52,3 +52,4 @@
 
 * [OCR 截图识字](https://toolinbox.net/iText/)
 * [轻松便捷爱截图](http://jietu.qq.com/)
+* [GIPHY CAPTURE](https://giphy.com/apps/giphycapture)
