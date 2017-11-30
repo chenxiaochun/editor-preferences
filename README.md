@@ -47,3 +47,8 @@
 
 * https://github.com/robbyrussell/oh-my-zsh
 * 自动提示补全：https://github.com/zsh-users/zsh-autosuggestions
+
+## macOS
+
+* [OCR 截图识字](https://toolinbox.net/iText/)
+* [轻松便捷爱截图](http://jietu.qq.com/)
