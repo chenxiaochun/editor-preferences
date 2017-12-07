@@ -50,6 +50,7 @@
 
 ## macOS
 
+* [Awesome-mac](https://github.com/jaywcjlove/awesome-mac)
 * [图片文件转成 SVG 文件](https://primitive.lol/)
 * [OCR 截图识字](https://toolinbox.net/iText/)
 * [轻松便捷爱截图](http://jietu.qq.com/)
