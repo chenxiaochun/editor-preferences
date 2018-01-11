@@ -6,7 +6,6 @@
 {
     "window.zoomLevel": 1,
     "files.autoSave": "onFocusChange",
-    "workbench.iconTheme": "material-icon-theme",
     "workbench.activityBar.visible": true,
     "files.associations": {
         "*.scss": "scss",
@@ -16,7 +15,10 @@
     "explorer.autoReveal": false,
     "workbench.editor.enablePreview": false,
     "material-icon-theme.showUpdateMessage": false,
-    "extensions.ignoreRecommendations": true
+    "extensions.ignoreRecommendations": true,
+    "workbench.iconTheme": "material-icon-theme",
+    "explorer.confirmDragAndDrop": false,
+    "javascript.implicitProjectConfig.experimentalDecorators": true
 }
 ```
 
