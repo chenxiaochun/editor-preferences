@@ -4,22 +4,27 @@
 
 ```json
 {
-    "window.zoomLevel": 1,
-    "files.autoSave": "onFocusChange",
-    "workbench.activityBar.visible": true,
-    "files.associations": {
-        "*.scss": "scss",
-        "*.vm": "html",
-        "*.sass": "scss"
-    },
-    "explorer.autoReveal": false,
-    "workbench.editor.enablePreview": false,
-    "material-icon-theme.showUpdateMessage": false,
-    "extensions.ignoreRecommendations": true,
-    "workbench.iconTheme": "material-icon-theme",
-    "explorer.confirmDragAndDrop": false,
-    "javascript.implicitProjectConfig.experimentalDecorators": true
+  "window.zoomLevel": 1,
+  "files.autoSave": "onFocusChange",
+  "workbench.activityBar.visible": true,
+  "files.associations": {
+    "*.scss": "scss",
+    "*.vm": "html",
+    "*.sass": "scss"
+  },
+  "explorer.autoReveal": false,
+  "workbench.editor.enablePreview": false,
+  "material-icon-theme.showUpdateMessage": false,
+  "extensions.ignoreRecommendations": true,
+  "workbench.iconTheme": "material-icon-theme",
+  "explorer.confirmDragAndDrop": false,
+  "javascript.implicitProjectConfig.experimentalDecorators": true,
+  "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?",
+  "editor.tabSize": 2,
+  "eslint.autoFixOnSave": true,
+  "editor.formatOnSave": true
 }
+
 ```
 
 ### 开发插件：
