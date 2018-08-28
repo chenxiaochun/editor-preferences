@@ -22,9 +22,13 @@
   "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?",
   "editor.tabSize": 2,
   "eslint.autoFixOnSave": true,
-  "editor.formatOnSave": true
+  "[javascript]": {
+    "editor.formatOnSave": true
+  },
+  "[typescriptreact]": {
+    "editor.formatOnSave": true
+  },
 }
-
 ```
 
 ### 开发插件：
