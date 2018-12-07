@@ -1,4 +1,4 @@
-set ofu=syntaxcomplete#Complete
+ set ofu=syntaxcomplete#Complete
 " Configuration file for vim
 
 "Vundle Section Start
@@ -23,13 +23,19 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'tomasiser/vim-code-dark'
 
 " 代码片段提示
-" Plugin 'MarcWeber/vim-addon-mw-utils' 
-" Plugin 'tomtom/tlib_vim' 
-" Plugin 'garbas/vim-snipmate'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'Galooshi/vim-import-js'
+" Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
-" mac下neovim支持python的办法: https://www.jianshu.com/p/f87ef103858a
 " https://medium.com/@rahul11061995/autocomplete-in-vim-for-js-developer-698c6275e341
 " Plugin 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
+
+" 自动闭合标签
+Plugin 'alvan/vim-closetag'
+
+" 快速打开文件
+Plugin 'kien/ctrlp.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -43,20 +49,46 @@ let g:ale_linter_aliases = {'jsx': ['css', 'javascript']}
 let g:ale_linters = {'jsx': ['stylelint', 'eslint']}
 " let g:ale_sign_error = '✗'
 
-" let g:UltiSnipsExpandTrigger="<tab>"
-" let g:UltiSnipsJumpForwardTrigger="<c-b>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-" let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
+" let g:deoplete#enable_at_startup = 1
 
-" Start autocompletion after 4 chars
-" let g:ycm_min_num_of_chars_for_completion = 4
-" let g:ycm_min_num_identifier_candidate_chars = 4
-" let g:ycm_enable_diagnostic_highlighting = 0
-" Don't show YCM's preview window [ I find it really annoying ]
-" set completeopt-=preview
-" let g:ycm_add_preview_to_completeopt = 0
-
+" 配置nvim的python路径
+" mac下neovim支持python的办法: https://www.jianshu.com/p/f87ef103858a 
 let g:python3_host_prog = '/usr/local/bin/python3.7'
+
+" filenames like *.xml, *.html, *.xhtml, ...
+" These are the file extensions where this plugin is enabled.
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.js'
+
+" filetypes like xml, html, xhtml, ...
+" These are the file types where this plugin is enabled.
+let g:closetag_filetypes = 'html,xhtml,phtml,js'
+
+" integer value [0|1]
+" This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
+let g:closetag_emptyTags_caseSensitive = 1
+
+" Shortcut for closing tags, default is '>'
+let g:closetag_shortcut = '>'
+
+" Add > at current position without closing the current tag, default is ''
+let g:closetag_close_shortcut = '<leader>>'
+
+" 快速打开文件
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+set wildignore+=*/node_modules/*,*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
+
 
 
 set modelines=0		" CVE-2007-2438
@@ -82,11 +114,13 @@ set softtabstop=4
 set ruler
 set undolevels=1000	
 set backspace=indent,eol,start	
+set path=./**
 
 colorscheme codedark
 " colorscheme molokai
 
 noremap <F2> :w<ENTER>
+noremap <F3> :q<ENTER>
 
 augroup FiletypeGroup
     autocmd!
