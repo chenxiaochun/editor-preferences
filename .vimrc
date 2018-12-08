@@ -1,4 +1,4 @@
- set ofu=syntaxcomplete#Complete
+set ofu=syntaxcomplete#Complete
 " Configuration file for vim
 
 "Vundle Section Start
