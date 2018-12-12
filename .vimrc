@@ -37,6 +37,14 @@ Plugin 'alvan/vim-closetag'
 " 快速打开文件
 Plugin 'kien/ctrlp.vim'
 
+" git插件
+Plugin 'tpope/vim-fugitive'
+
+" Plugin 'ternjs/tern_for_vim'
+
+" 自动在两边添加配对字符
+Plugin 'tpope/vim-surround'
+
 call vundle#end()
 filetype plugin indent on
 "Vundle Section End
@@ -121,6 +129,8 @@ colorscheme codedark
 
 noremap <F2> :w<ENTER>
 noremap <F3> :q<ENTER>
+noremap <F4> "+y<ENTER>
+noremap <F5> "+p<ENTER>
 
 augroup FiletypeGroup
     autocmd!
@@ -131,3 +141,4 @@ augroup END<Paste>
 au BufWrite /private/tmp/crontab.* set nowritebackup nobackup
 " Don't write backup file if vim is being called by "chpass"
 au BufWrite /private/etc/pw.* set nowritebackup nobackup
+
