@@ -46,7 +46,10 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 
 " 自动保存
-Plugin 'vim-scripts/vim-auto-save'
+" Plugin 'vim-scripts/vim-auto-save'
+
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 call vundle#end()
 filetype plugin indent on
@@ -100,8 +103,8 @@ let g:ctrlp_custom_ignore = {
   \ 'link': 'some_bad_symbolic_links',
   \ }
 
-let g:auto_save = 1 " 自动保存
-let g:auto_save_in_insert_mode = 0 " 在插入模式时，不进行自动保存
+" let g:auto_save = 1 " 自动保存
+" let g:auto_save_in_insert_mode = 0 " 在插入模式时，不进行自动保存
 
 set modelines=0		" CVE-2007-2438
 set nocompatible	" Use Vim defaults instead of 100% vi compatibility
@@ -135,8 +138,8 @@ noremap <F2> :w<ENTER>
 noremap <F3> :q<ENTER>
 noremap <F4> "+y<ENTER>
 noremap <F5> "+p<ENTER>
-noremap <F6> <c-z>
-noremap <F7> <c-w>w
+noremap <c-k> <c-z>
+noremap <c-j> <c-w>w
 
 augroup FiletypeGroup
     autocmd!
@@ -147,3 +150,4 @@ augroup END<Paste>
 au BufWrite /private/tmp/crontab.* set nowritebackup nobackup
 " Don't write backup file if vim is being called by "chpass"
 au BufWrite /private/etc/pw.* set nowritebackup nobackup
+
