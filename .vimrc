@@ -15,6 +15,7 @@ Plugin 'scrooloose/syntastic'
 
 " 代码格式化
 Plugin 'w0rp/ale'
+Plugin 'Chiel92/vim-autoformat'
 
 " 括号，引号自动配对
 Plugin 'jiangmiao/auto-pairs'
@@ -50,6 +51,9 @@ Plugin 'tpope/vim-surround'
 
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+
+" Plugin 'scrooloose/nerdtree'
+" Plugin 'jistr/vim-nerdtree-tabs'
 
 call vundle#end()
 filetype plugin indent on
@@ -103,6 +107,13 @@ let g:ctrlp_custom_ignore = {
   \ 'link': 'some_bad_symbolic_links',
   \ }
 
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#fnamemod = ':.'
+let g:airline#extensions#tabline#fnamecollapse = 0
+let airline#extensions#tabline#tabs_label = ''
+let airline#extensions#tabline#show_splits = 0
+
 " let g:auto_save = 1 " 自动保存
 " let g:auto_save_in_insert_mode = 0 " 在插入模式时，不进行自动保存
 
@@ -129,6 +140,8 @@ set softtabstop=4
 set ruler
 set undolevels=1000	
 set backspace=indent,eol,start	
+set cursorline
+set autoread
 set path=./**
 
 colorscheme codedark
@@ -138,8 +151,10 @@ noremap <F2> :w<ENTER>
 noremap <F3> :q<ENTER>
 noremap <F4> "+y<ENTER>
 noremap <F5> "+p<ENTER>
-noremap <c-k> <c-z>
+noremap <F6> <c-z>
 noremap <c-j> <c-w>w
+noremap <C-L> <Esc>:tabnext<CR>
+noremap <C-H> <Esc>:tabprevious<CR>
 
 augroup FiletypeGroup
     autocmd!
