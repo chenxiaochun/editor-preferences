@@ -13,8 +13,10 @@ Plugin 'VundleVim/Vundle.vim'
 " 语法检查
 Plugin 'scrooloose/syntastic'
 
-" 代码格式化
+" 基于项目中的eslint配置格式化代码
 Plugin 'w0rp/ale'
+
+" 只是用来临时格式化某个文件，需要全局安装js-beautify
 Plugin 'Chiel92/vim-autoformat'
 
 " 括号，引号自动配对
@@ -106,6 +108,7 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(exe|so|dll)$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
+let g:ctrlp_use_caching = 0
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
@@ -120,7 +123,7 @@ let airline#extensions#tabline#show_splits = 0
 set modelines=0		" CVE-2007-2438
 set nocompatible	" Use Vim defaults instead of 100% vi compatibility
 set backspace=2		" more powerful backspacing
-set ts=4
+set ts=2
 syntax on
 set number	
 set linebreak
@@ -136,7 +139,7 @@ set autoindent
 set shiftwidth=2	
 set smartindent
 set smarttab
-set softtabstop=4
+set softtabstop=2
 set ruler
 set undolevels=1000	
 set backspace=indent,eol,start	
