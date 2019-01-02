@@ -48,11 +48,16 @@ Plugin 'tpope/vim-fugitive'
 " 自动在两边添加配对字符
 Plugin 'tpope/vim-surround'
 
+" 多行编辑
+Plugin 'terryma/vim-multiple-cursors'
+
 " 自动保存
 " Plugin 'vim-scripts/vim-auto-save'
 
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+
+Plugin 'tpope/vim-obsession'
 
 " Plugin 'scrooloose/nerdtree'
 " Plugin 'jistr/vim-nerdtree-tabs'
@@ -155,7 +160,10 @@ noremap <F3> :q<ENTER>
 noremap <F4> "+y<ENTER>
 noremap <F5> "+p<ENTER>
 noremap <F6> <c-z>
-noremap <c-j> <c-w>w
+" noremap <c-j> <c-w>w
+noremap <c-j> <c-d>
+noremap <c-k> <c-u>
+noremap <c-i> <c-w>w
 noremap <C-L> <Esc>:tabnext<CR>
 noremap <C-H> <Esc>:tabprevious<CR>
 
@@ -169,3 +177,11 @@ au BufWrite /private/tmp/crontab.* set nowritebackup nobackup
 " Don't write backup file if vim is being called by "chpass"
 au BufWrite /private/etc/pw.* set nowritebackup nobackup
 
+" Triger `autoread` when files changes on disk
+" https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim/383044#383044
+" https://vi.stackexchange.com/questions/13692/prevent-focusgained-autocmd-running-in-command-line-editing-mode
+autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
+" Notification after file change
+" https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
+autocmd FileChangedShellPost *
+  \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
