@@ -1,4 +1,4 @@
- set ofu=syntaxcomplete#Complete
+" set ofu=syntaxcomplete#Complete
 " Configuration file for vim
 
 "Vundle Section Start
@@ -11,7 +11,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " 语法检查
-Plugin 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
 
 " 基于项目中的eslint配置格式化代码
 Plugin 'w0rp/ale'
@@ -22,7 +22,7 @@ Plugin 'Chiel92/vim-autoformat'
 " 括号，引号自动配对
 Plugin 'jiangmiao/auto-pairs'
 
-" 黑色主题
+" 代码高亮主题
 Plugin 'tomasiser/vim-code-dark'
 
 " 代码片段提示
@@ -69,10 +69,20 @@ filetype plugin indent on
 
 let g:ale_fixers = ['eslint']
 let g:ale_fix_on_save = 1
+let g:ale_sign_column_always = 1
 let g:ale_cache_executable_check_failures = 1
 let g:ale_linter_aliases = {'jsx': ['css', 'javascript']}
 let g:ale_linters = {'jsx': ['stylelint', 'eslint']}
 " let g:ale_sign_error = '✗'
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '⚠️'
+
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
+" highlight ALEErrorSign ctermbg=green ctermfg=red
+" highlight ALEWarningSign ctermbg=blue ctermfg=yellow
+" highlight ALEErrorSign ctermfg=9 ctermbg=15 guifg=#C30500 guibg=#F5F5F5
+" highlight ALEWarningSign ctermfg=11 ctermbg=15 guifg=#ED6237 guibg=#F5F5F5
 
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
@@ -110,10 +120,11 @@ set wildignore+=*/node_modules/*,*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'file': '\v\.(exe|so|dll|DS_Store)$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
 let g:ctrlp_use_caching = 0
+let g:ctrlp_show_hidden = 1
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
@@ -121,6 +132,8 @@ let g:airline#extensions#tabline#fnamemod = ':.'
 let g:airline#extensions#tabline#fnamecollapse = 0
 let airline#extensions#tabline#tabs_label = ''
 let airline#extensions#tabline#show_splits = 0
+
+let g:codedark_term256 = 1
 
 " let g:auto_save = 1 " 自动保存
 " let g:auto_save_in_insert_mode = 0 " 在插入模式时，不进行自动保存
@@ -151,9 +164,17 @@ set backspace=indent,eol,start
 set cursorline
 set autoread
 set path=./**
+set mouse=a
+set splitbelow " new window below
+set splitright " new window right
 
 colorscheme codedark
 " colorscheme molokai
+
+" set cursor color on paren
+" https://stackoverflow.com/questions/10746750/set-vim-bracket-highlighting-colors
+" color code see https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg
+hi MatchParen cterm=underline ctermbg=none ctermfg=010
 
 noremap <F2> :w<ENTER>
 noremap <F3> :q<ENTER>
@@ -167,15 +188,15 @@ noremap <c-i> <c-w>w
 noremap <C-L> <Esc>:tabnext<CR>
 noremap <C-H> <Esc>:tabprevious<CR>
 
-augroup FiletypeGroup
-    autocmd!
-    au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
-augroup END<Paste>
+" augroup FiletypeGroup
+"    autocmd!
+"    au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+" augroup END<Paste>
 
 " Don't write backup file if vim is being called by "crontab -e"
-au BufWrite /private/tmp/crontab.* set nowritebackup nobackup
+" au BufWrite /private/tmp/crontab.* set nowritebackup nobackup
 " Don't write backup file if vim is being called by "chpass"
-au BufWrite /private/etc/pw.* set nowritebackup nobackup
+" au BufWrite /private/etc/pw.* set nowritebackup nobackup
 
 " Triger `autoread` when files changes on disk
 " https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim/383044#383044
@@ -185,3 +206,4 @@ autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checkti
 " https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
 autocmd FileChangedShellPost *
   \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+
